@@ -1,0 +1,7 @@
+.bcns.edit
+  %h1= t(:edit)+' '+@bcn.name
+
+  = render 'form'
+
+  .button
+    = link_to t(:back), company_bcns_path(@company)

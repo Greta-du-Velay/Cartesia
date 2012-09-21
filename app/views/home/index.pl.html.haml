@@ -1,0 +1,41 @@
+- if user_signed_in?
+  .grid_8
+    %p
+      %strong Witamy!
+    %p Jesteś na stronie głównej Twojego indywidualnego profilu.
+    %p Tutaj możesz zarządzać zadaniami Kluczowych Potrzeb Biznesu jak również wskaźników uczenia się i rozwoju indywidualnego pracowników Państwa firmy.
+    %p= link_to " Stwórz nowy profil firmy", new_company_path
+    %p
+      %em &nbsp;-- lub --
+    %p
+      = link_to " Stwórz testowy profil firmy", 'companies/create_random'
+      (przeznaczony tylko do celów testowych)
+  .grid_4
+    %h3 Firma
+    - if @user.companies.empty?
+      %em Nie wprowadzono danych firmy.
+    - else
+      %ul
+        - @user.companies.each do |company|
+          %li
+            = link_to company.name, company_path(company)
+
+- else
+  .grid_8
+    = form_tag choose_locale_path do
+      = select_tag "new_locale", options_for_select({'English' => 'en', 'French' => 'fr', 'Greek' => 'el', 'Italian' => 'it', 'Polish' => 'pl' , 'Spanish' => 'es'})
+      = submit_tag "Go"
+    %p
+      %strong
+        Witamy w Cartesii, nowym narzędziu on-line mającym na celu wspieranie zarządzania pracownikami Państwa firmy.
+    %p
+      W celu korzystania z oprogramowania zarejestruj się i/lub zaloguj. Rejestracja jest konieczna do pełnego funkcjonowania Cartesii. Użytkowanie programu jest całkowicie bezpłatne.
+      Stwórz profil twojej firmy, wprowadź indywidualne Kluczowe Potrzeby Biznesu i na bieżąco oceniaj indywidualny rozwój pracowników Państwa firmy.
+    %p
+      Celem właściwego działania narzędzia zalecamy korzystanie z najnowszych wersji  przeglądarek internetowych Firefox, Safari, Chrome, Opera i Internet Explorer (wersja 9+).
+    %p
+      %em Narzędzie Cartesia jest całkowicie bezpłatne oraz powstało w ramach realizacji projektu partnerskiego „BeCome” współfinansowanego w ramach środków Unii Europejskiej z programu Leonardo DaVinci”.
+    -# %strong{:style => 'color: red'}
+      -# Message to BeCome partners: please register a new training advisor then use the link to create a 'fake' company
+  .grid_4
+    %img{:src => "/images/screenshot.png"}

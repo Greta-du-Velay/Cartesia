@@ -1,0 +1,20 @@
+.learning_indicators.index
+  %h1= t(:li)
+  %p
+    = t(:bcn)
+    \:
+    %strong #{@bcn.name}
+  
+  %table
+    - @learning_indicators.each do |learning_indicator|
+      %tr
+        %td
+          = learning_indicator.name
+          = "(#{learning_indicator.label})" unless learning_indicator.label.blank?
+        %td= link_to t(:edit), edit_company_bcn_learning_indicator_path(@company, @bcn, learning_indicator)
+
+  %h2= t(:add_li)
+  = render 'form'
+
+  .button
+    = link_to t(:back_to_bcn), company_bcns_path(@company)

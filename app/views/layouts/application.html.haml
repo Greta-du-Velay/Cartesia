@@ -1,0 +1,56 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Cartesia
+    %meta{:content => "DTT is...", :name => "description"}/
+    %meta{:content => "keywords...", :name => "keywords"}/
+    -# %meta{:content => "Based on The Camino Project Website", :name => "Author"}/
+    %link{:href => "/favicon.png", :rel => "icon", :type => "image/png"}/
+
+    / Fixes for IE 6
+    /[if lte IE 6]
+      = stylesheet_link_tag 'ie6', :media => 'screen'
+    = stylesheet_link_tag '960gs', :media => 'all' 
+    = stylesheet_link_tag 'formtastic', 'formtastic_changes', :media => 'all'
+    = stylesheet_link_tag 'jquery-ui-1.8.11.custom', :media => 'all' 
+    = stylesheet_link_tag 'dtt', :media => 'all' 
+
+    = javascript_include_tag :all, :cache => true
+
+    = csrf_meta_tag
+
+  %body
+    .container_12
+      #header
+        .grid_8
+          #logo
+            %a{:href => root_path, :indepth => "true", :title => "return to the homepage"}
+              %img{:alt => "DTT", :src => "/images/logo.png"}/
+        .grid_4
+          #logo-become
+            %a{:href => 'http://become.ning.com/', :target => '_blank', :title => "BeCome website"}
+              %img{:alt => "BeCome project", :src => "/images/BeCome.png"}/
+        .clear
+
+        - semantic_navigation :main, :html => { :id => 'nav' } do |n|        
+          = n.item t(:signin), :link => new_user_session_path unless user_signed_in?
+          = n.item t(:signup), :link => new_user_registration_path unless user_signed_in? #, :highlights_on => [new_user_registration_url]
+          = n.item t(:editprofile), :link => edit_user_registration_path if user_signed_in?
+          = n.item t(:signout), :link => destroy_user_session_path if user_signed_in?
+
+      #content
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+
+        = yield
+      %div{:style => 'clear: both'}
+      #footer-bg
+        #footer
+          .grid_8
+            %p
+              %a{:href => 'http://become.ning.com/', :target => '_blank', :title => "BeCome website"}
+                The BeCome Project
+              \- 2012

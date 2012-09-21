@@ -1,0 +1,108 @@
+it:
+  signup: "Registrazione"
+  signin: "Login"
+  signout: "Logout"
+  forgotpassword: "Password dimenticata?"
+  sendpassword: "Inviami le istruzioni per il cambio password."
+  changepassword: "Cambia password"
+  editprofile: "Modifica profilo"
+  leave_blank: "(non compilare se non si vuole cambiare il valore)"
+    
+  back: "Indietro"
+  back_to_home: "Home page"
+  back_to_bcn: "BCN"
+  save: "Salva"
+  edit: "Modifica"
+  delete: "Elimina"
+  update: "Aggiorna"
+
+  create_new_company_profile: "Crea un nuovo profilo aziendale"
+  li: "Indicatore di studio"
+  bcn: "Business Critical Need"
+  registered_employees: "Membri registrati"
+  update_levels: "Aggiorna livelli"
+  manage_levels: "Gestisci livelli"
+  no_employee_registered: "Nessun membro registrato"
+  add_employee: "Aggiungi mebro"
+  bcn_identified: "Business Critical Needs identified"
+  menu: "Menu"
+  modify_company_profile: "Modifica profilo aziendale"
+  manage_bcn_li: "Gestisci BCN e LI"
+  manage_employees: "Gestisci membri & livelli"  
+  report: "Report"  
+  create_new_bcn: "Identifica un nuovo bussiness critical need"
+  add_li: "Aggiungi un learning indicators"
+  bcn_for_company: "Business critical needs for this company"
+  manage_li: "Gestisci learning indicators"
+  levels: "Livelli"
+  levels_help: "Per ogni learning indicator, scegliere il livello iniziale."
+  skills_help: "Per ogni learning indicator, scegli il livello raggiunto." 
+  not_relevant: "Non è importante per questo membro"
+
+  rate0: "Non ho iniziato ad acquisire le nozioni necessario per questo indicatore. "
+  rate1: "Ho iniziato ad acquisire alcune nozioni ma ho bisogno di altro supporto per ottenere risultati."
+  rate2: "Ho iniziato ad acquisire alcune nozioni ma i progressi sono lenti."
+  rate3: "Ho acquisito alcune nozioni e sono consapevole dei progressi che ho effettuato."
+  rate4: "Ho acquisito le necessarie nozioni per il mio incarico attuale usando gli strumenti di e-learning e sto inziando a mettere in pratica gli insegnamenti durante il lavoro."
+  rate5: "Ho acquisito le necessarie nozioni per il mio incarico attuale usando gli strumenti di e-learning e mettendo in pratica gli insegnamenti durante il lavoro."
+  rate6: "Ho acquisito le competenze necessarie per il mio ruolo attuale ma , per il futuro della azienda, riconosco di poter sviluppare ulteriormente le mie capacità."
+  rate7: "Sono abbastanza sicuro nell'utilizzare queste competenze per poter dare supporto ad alcuni colleghi in questo ambito."
+  rate8: "Sono abbastanza sicuro nell'utilizzare queste competenze per poter dare supporto ai nuovi arrivati in questo ambito."
+  rate9: "Sono abbastanza sicuro nell'utilizzare queste competenze per poter dare supporto a tutti i miei colleghi in questo ambito."
+
+  report_for: "Report for %{this}"
+  overall_bcnÂ°progress: "Progressi BCN"
+  overall_employee_progress: "Progressi membro"
+  overall_company_progress: "Progressi azienda"
+  employees: "Membro"
+  employees_count: "Membri"
+  bcn_li_this_employee : "BCN & Learning indicator per questo membro"
+  register_employees: "Devi registrare i membri per avere il report..."
+  manager: "Manager"
+  how_to_share_pl: "Come condividere questo report?"
+  change_permalink: "Modifica il link"
+  how_to_share_help: "Per condividere questo report con altri membri o con utenti non registrati deve usato il link qui sotto. E' consigliato inviare il link via email solo a utenti verificati."
+  permalink_changed: "Il collegato al report è stato modificato. Il link precedente è obsoleto."
+  permalink_invalid: "Il report non è disponibile. Contattare l'amministratore del sistema per avere un link valido per accedere al report."
+  view_full_report: "Visualizza il report"
+  
+  attributes:
+    name: "Name"
+    description: "Descrizione"
+    manager: "Manager"
+    workers_count: "Quantità di lavoratori nell'azienda"
+    label: "Etichetta"
+    password: "Password"
+    password_confirmation: "Conferma password"
+    remember_me: "Ricordami"
+    
+  activerecord:
+    models:
+      company: "Azienda"
+      employee: "Membro"
+      bcn: "BCN"
+      learning_indicator: "learning indicator"
+
+  formtastic:
+    yes: "Si"
+    no: "No"
+    create: "Crea"
+    update: "Modifica"
+    submit: "Conferma"
+    required: "Obbligatorio"
+    
+    hints:
+      company:
+        name: "Nome Azienda"
+        manager: "Dirigente o il responsabile delle risorse umane"
+        description: "Descrizione dell'azienda. Apparirà nel report"
+        workers_count: "Quantità di lavoratori nell'azienda"
+      bcn:
+        label: "Verrà visualizzata nella grafica"
+        description: "Verrà visualizzata nel report"
+      learning_indicator:
+        name: "Verrà visualizzata nel report"
+        label: "Verrà visualizzata nella grafica"
+
+  
+  

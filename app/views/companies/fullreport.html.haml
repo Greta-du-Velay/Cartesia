@@ -1,0 +1,76 @@
+.grid_12
+  %p
+    %h1
+      = @company.name
+  %p
+    = @company.description
+  %p
+    = t(:manager)
+    \:
+    %strong= @company.manager
+  %p
+    = t(:employees_count)
+    \:
+    %strong= @company.workers_count
+    = "(#{t(:registered_employees).downcase} : #{@company.employees.count.to_s})"
+
+  .clear
+
+  %h2= t(:report)
+
+  - if @company.employees.count > 0    
+    %p
+      %strong
+        = t(:overall_company_progress)
+        &rarr; #{percent_colorize((@company.completion * 100).to_i)}
+    %p &nbsp;
+
+    %canvas{"data-processing-sources" => "/processing/jspie-company.pjs"}
+
+    %h2= t(:bcn)
+    %ul
+      - @company.bcns.each do |bcn|
+        %li
+          %strong= link_to bcn.name, report_company_bcn_url(@company, bcn)
+          &rarr;
+          - b_comp = bcn.completion
+          - if b_comp.nil?
+            &times;
+          - else
+            #{percent_colorize((b_comp * 100).to_i)}
+        %iframe{:src => report_company_bcn_url(@company, bcn) + '?inline=1', :frameborder => 0, :marginwidth => 0, :marginheight => 0, :width => '620', :height => '480'}
+
+  - else
+    %p= t(:register_employees)
+
+  .clear
+
+  %h2=t(:employees)
+  %ul
+    - @company.employees.each do |e|
+      %li
+        %strong= link_to e.name, report_company_employee_url(@company, e)
+        &rarr;
+        - e_comp = e.completion
+        - if e_comp.nil?
+          &times;
+        - else
+          #{percent_colorize((e_comp * 100).to_i)}
+        %ul
+          - @company.bcns.each do |bcn|
+            %li
+              = bcn.name
+              &rarr;
+              - b_comp = e.bcn_completion(bcn.id)
+              - if b_comp.nil?
+                &times;
+              - else
+                #{percent_colorize((b_comp * 100).to_i)}
+
+        %iframe{:src => report_company_employee_url(@company, e) + '?inline=1', :frameborder => 0, :marginwidth => 0, :marginheight => 0, :width => '620', :height => '480'}
+        %p &nbsp;
+        
+  - unless guest?
+    .button
+      = link_to t(:back), report_company_path(@company)
+

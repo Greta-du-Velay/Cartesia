@@ -1,0 +1,41 @@
+
+.grid_8
+  %h1= @company.name
+  %p= @company.description
+  %p
+    - if @company.employees.count > 0
+      = link_to t(:registered_employees), company_employees_path(@company)
+      &rarr;
+      = @company.employees.count
+
+      = form_tag update_levels_company_path(@company) do |f|
+        = select_tag "employee_id", options_from_collection_for_select(@company.employees.order('name ASC'), "id", "name")
+        = submit_tag t(:update_levels)
+    - else
+      = t(:no_employee_registered)
+    
+  %p= link_to t(:manage_employees), company_employees_path(@company)
+
+  %h2= t(:bcn_identified)
+  %ul
+    - @company.bcns.each do |bcn|
+      %li= link_to bcn.name, edit_company_bcn_path(@company, bcn)
+
+  %p= link_to t(:manage_bcn_li), company_bcns_path(@company)
+
+  .button
+    = link_to t(:back_to_home), root_path
+
+.grid_4
+  .menu
+    %h2= t(:menu)
+    %ul
+      %li= link_to t(:modify_company_profile), edit_company_path(@company)
+      %li= link_to t(:manage_bcn_li), company_bcns_path(@company)
+      %li= link_to t(:manage_employees), company_employees_path(@company)
+      - if @company.bcns.count > 0 and @company.employees.count > 0
+        %li= link_to t(:report), report_company_path(@company)
+
+
+  =# link_to 'Delete for ever...', @company, :confirm => 'Are you sure?', :method => :delete
+

@@ -1,0 +1,104 @@
+// Pie graphics in ProcessingJS
+// Jerome Combaz, Greta du Velay, 2012
+
+  int applet_width = 620, applet_height = 480, max_width;
+    
+  String[] employee_names = new String[64];
+  int[] employee_progresses = new String[64];
+  int employee_count = 0;
+  int total_bcn_weight = 0;
+  
+  color[] palette;
+  PFont font;
+  
+  void setup() {
+    size(applet_width, applet_height);
+
+    // load palette
+    String[] strings = loadStrings("/data/palette.txt");
+    palette = new color[strings.length];
+    for (int p = 0; p<strings.length; p++) {
+      palette[p] = color(unhex(strings[p]));
+    }
+
+    // load data
+    String[] data = loadStrings("get_report_data");
+    int n;
+    for (n = 0; n<data.length; n++) {
+      String[] line = split(data[n], '|');
+      employee_names[n] = line[0];
+      employee_progresses[n] = (int) line[1];
+    }
+    employee_count = n;
+
+    max_width = int(min(applet_width, applet_height) * 0.7);
+    
+    font = loadFont("Arial");
+    textFont(font, max_width / 24);
+    textLeading(max_width / 24 * 1.25);
+  
+    background(255);
+    noStroke();
+    smooth();
+    
+    drawArcs();    
+  }
+      
+  void drawArcs() {
+    float start = -HALF_PI;
+    float angle = TWO_PI/employee_count;
+  
+    for(int i=0; i<employee_count; i++) {
+
+      color col = palette[i % (palette.length)];
+
+      float proportion = map(employee_progresses[i], 0, 100, 0, max_width);
+  
+      pushMatrix();
+        translate(width/2, height/2);
+        rotate(start);
+  
+        noStroke();
+        // arc du fond
+        fill(col, 32);
+        arc(0, 0, max_width, max_width, 0, angle);
+    
+        // arc valeur
+        fill(col, 200);
+        stroke(col, 255);
+        strokeWeight(2);
+
+        arc(0, 0, proportion, proportion, 0, angle);
+  
+  /*
+        strokeWeight(1);
+        line(0, 0, proportion/2, 0);
+        rotate(angle);
+        line(0, 0, proportion/2, 0);
+  //*/
+
+      popMatrix();
+  
+      // positionne texte
+      float x, text_angle;
+  
+      pushMatrix();
+        x = max(proportion / 2 * 1.1, max_width / 6);
+        translate(width/2, height/2);
+        text_angle = start + angle / 2;
+        if (text_angle + PI/2 > PI) {
+          text_angle += PI;
+          x = -x;
+          textAlign(RIGHT);
+        } else {
+          textAlign(LEFT);
+        }
+        
+        rotate(text_angle);
+        fill(0);
+        text(employee_names[i] + "\n" + employee_progresses[i] + "%", x, 0);
+      popMatrix();
+  
+      start += angle;
+    }
+  }

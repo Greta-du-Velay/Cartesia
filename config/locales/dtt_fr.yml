@@ -1,0 +1,107 @@
+
+fr:
+  signup: "Inscription"
+  signin: "Connexion"
+  signout: "Déconnexion"
+  forgotpassword: "Mot de passe oublié ?"
+  sendpassword: "Recevoir un nouveau mot de passe"
+  changepassword: "Changer son mot de passe"
+  editprofile: "Editer mon profil"
+  leave_blank: "(laisser vide si vous ne souhaitez pas le changer)"
+
+  back: "Retour"
+  back_to_home: "Retour à l'accueil"
+  back_to_bcn: "Retour aux besoins cruciaux"
+  save: "Enregistrer"
+  edit: "Editer"
+  delete: "Effacer"
+  update: "Mettre à jour"
+
+  create_new_company_profile: "Créer un profil d'entreprise"
+  li: "Indicateurs d'apprentissage"
+  bcn: "Besoin crucial"
+  registered_employees: "Employés inscrits"
+  update_levels: "Mettre à jour les niveaux"
+  manage_levels: "Modifier les niveaux"
+  no_employee_registered: "Aucun employé inscrit."
+  add_employee: "Ajouter un(e) employé(e)"
+  bcn_identified: "Besoins cruciaux identifiés"
+  menu: "Menu"
+  modify_company_profile: "Modifier le profil de l'entreprise"
+  manage_bcn_li: "Gérer les besoins et indicateurs d'apprentissage"
+  manage_employees: "Gérer les employés"  
+  report: "Rapport"
+  create_new_bcn: "Identifier un besoin crucial"
+  add_li: "Ajouter un indicateur d'apprentissage"
+  bcn_for_company: "Besoins cruciaux de l'entreprise"
+  manage_li: "Gérer les indicateurs d'apprentissage"
+  levels: "Niveaux"
+  levels_help: "Pour chaque indicateur d'apprentissage, choisir le niveau de départ et celui à atteindre."
+  skills_help: "Pour chaque indicateur d'apprentissage, choisir le niveau actuel atteint par l'employé." 
+  not_relevant: "Pas applicable pour cet(te) employé(e)"
+
+  rate0: "Je n'ai pas commencé à m'attaquer aux compétences requises pour cet indicateur"
+  rate1: "J'ai commencé à essayer de répondre à ces compétences, mais ont besoin davantage de soutien pour faire des progrès"
+  rate2: "J'ai commencé à répondre à ces compétences, mais les progrès sont lents"
+  rate3: "Je sens que j'ai acquis une certaine connaissance des compétences et je suis conscient des progrès que j'ai fait"
+  rate4: "Je sens que j'ai acquis des connaissances importantes de ces compétences pour mon rôle emploi actuel grâce à l'utilisation des outils e-learning et je commence à mettre en pratique sur le tas"
+  rate5: "Je sens que j'ai acquis une connaissance suffisante de ces compétences pour mon rôle emploi actuel grâce à l'utilisation des outils e-learning et je mets en pratique sur le tas"
+  rate6: "Je sens que j'ai acquis cet indicateur en termes d'apprentissage de mon rôle actuel, mais pour le développement futur de l'entreprise, je reconnais que je peux développer ces compétences supplémentaires."
+  rate7: "Je sens suffisamment confiance dans l'utilisation de ces compétences que je pourrais soutenir quelques collègues au sujet de ces compétences"
+  rate8: "Je sens suffisamment confiance dans l'utilisation de ces compétences que je pourrais soutenir les nouveaux arrivants à l'entreprise au sujet de ces compétences"
+  rate9: "Je sens suffisamment confiance dans l'utilisation de ces compétences que je pourrais soutenir toute collègues de mon entreprise à l'égard de ces compétences"
+
+  report_for: "Rapport pour %{this}"
+  overall_bcn_progress: "Progression totale pour ce besoin crucial"
+  overall_employee_progress: "Progression totale pour l'employé(e)"
+  overall_company_progress: "Progression totale pour l'entreprise"
+  employees: "Employés"
+  employees_count: "Nombre d'employés"
+  bcn_li_this_employee : "Besoins et indicateurs pour cet employé(e)"
+  register_employees: "Vous devez ajouter des employés afin de pouvoir créer un rapport..."
+  manager: "Responsable"
+  how_to_share_pl: "Comment partager ce rapport ?"
+  change_permalink: "Changer maintenant le lien permanent"
+  how_to_share_help: "Pour partager ce rapport avec les employés ou tout autre utilisateur non inscrit, copiez et collez le lien permanent ci-dessous. Vous ne devriez l'envoyer qu'à des utilisateurs de confiance."
+  permalink_changed: "Le lien permanent du rapport a été changé. L'ancien est obsolète et vous devez repartager celui-ci pour que d'autres y aient accès."
+  permalink_invalid: "Impossible d'accéder au rapport. Ce lien est invalide."
+  view_full_report: "Voir le rapport complet"
+
+  attributes:
+    name: "Nom"
+    description: "Description"
+    manager: "Responsable"
+    workers_count: "Nombre d'employés"
+    label: "Label"
+    password: "Mot de passe"
+    password_confirmation: "Confirmation du mot de passe"
+    remember_me: "Se souvenir de moi"
+    
+  activerecord:
+    models:
+      company: Entreprise
+      employee: Employé
+      bcn: "BCN"
+      learning_indicator: "Indicateur d'apprentissage"
+
+  formtastic:
+    yes: "Oui"
+    no: "Non"
+    create: "Créer"
+    update: "Mettre à jour"
+    submit: "Envoyer"
+    required: "requis"
+    
+    hints:
+      company:
+        name: "Nom de l'entreprise"
+        manager: "Responsable de l'entreprise ou des ressources humaines"
+        description: "Donnez une description de l'entreprise. Cela apparaitra dans le rapport."
+        workers_count: "Nombre d'employés dans l'entreprise."
+      bcn:
+        label: "Sera utilisé comme label dans les graphiques"
+        description: "Sera utilisée dans le rapport"
+      learning_indicator:
+        name: "Sera utilisée dans le rapport"
+        label: "Sera utilisé comme label dans les graphiques"
+      

@@ -1,0 +1,27 @@
+.bcns.index
+  %h1= t(:bcn_for_company)+" (#{@company.name})"
+
+  - @bcns.each do |bcn|
+    .bcn-item
+      .edit-link
+        = link_to t(:edit), edit_company_bcn_path(@company, bcn)
+      %h3
+        = bcn.name
+        = "(#{bcn.label})" unless bcn.label.blank?
+      %p
+        = bcn.description
+        %ul
+          - bcn.learning_indicators.each do |li|
+            %li
+              = li.name
+              = link_to "[#{t(:edit)}]", edit_company_bcn_learning_indicator_path(@company, bcn, li)
+
+        = link_to t(:manage_li), company_bcn_learning_indicators_path(@company, bcn)
+        |
+        = link_to t(:report), report_company_bcn_url(@company, bcn) unless @company.bcns.count == 0 or @company.employees.count == 0
+
+  %h2= t(:create_new_bcn)
+  = render 'form'
+
+  .button
+    = link_to t(:back), company_path(@company)

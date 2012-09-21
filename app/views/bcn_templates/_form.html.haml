@@ -1,0 +1,16 @@
+= form_for @bcn_template do |f|
+  -if @bcn_template.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bcn_template.errors.count, "error")} prohibited this bcn_template from being saved:"
+      %ul
+        - @bcn_template.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .actions
+    = f.submit t(:save)

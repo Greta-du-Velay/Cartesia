@@ -1,0 +1,7 @@
+.learning_indicators.edit
+  %h1= t(:edit)+' '+@learning_indicator.name
+
+  = render 'form'
+
+  .button
+    = link_to t(:back), company_bcn_learning_indicators_path(@company, @bcn)

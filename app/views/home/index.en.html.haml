@@ -1,0 +1,48 @@
+
+- if user_signed_in?
+
+  .grid_8
+    %p
+      %strong Hello advisor!
+
+    %p Welcome in your personal dashboard.
+    %p Here you can manage the companies you work for, business critical needs, learning indicators and so on...
+    %p= link_to "Create a new company profile", new_company_path
+    %p
+      %em &nbsp;-- or --
+    %p
+      = link_to "Create a fake company", 'companies/create_random'
+      (for testing purpose only...)
+
+  .grid_4
+    %h3 Companies advised
+    - if @user.companies.empty?
+      %em You don't follow any company for now.
+    - else 
+      %ul
+        - @user.companies.each do |company|
+          %li
+            = link_to company.name, company_path(company)
+
+- else
+  .grid_8
+    = form_tag choose_locale_path do
+      = select_tag "new_locale", options_for_select({'English' => 'en', 'French' => 'fr', 'Greek' => 'el', 'Italian' => 'it', 'Polish' => 'pl' , 'Spanish' => 'es'})
+      = submit_tag "Go"
+    %p
+      %strong
+        Welcome in the Cartesia tool, a service to manage your employees' training in your company.
+    %p
+      This tool is aimed to human resources managers.
+      To start, sign in or sign up for free.
+      Then create a company profile, set up the business critical needs of your activity
+      and evaluate your employees progression.
+    %p
+      Cartesia supports only modern browsers, including current versions of Firefox, Safari, Chrome, Opera, and Internet Explorer (version 9+)
+    %p
+      %em Cartesia is a free tool developed by the BeCome project partneship.
+
+    -# %strong{:style => 'color: red'}
+      -# Message to BeCome partners: please register a new training advisor then use the link to create a 'fake' company
+  .grid_4
+    %img{:src => "/images/screenshot.png"}

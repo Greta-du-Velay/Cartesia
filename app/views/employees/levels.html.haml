@@ -1,0 +1,37 @@
+.employees.levels
+  %h1= t(:levels)+" (#{@employee.name})"
+
+  %p= t(:levels_help)
+
+  .bcns
+    = semantic_form_for levels_company_employee_path(@company, @employee) do |f|
+      - @employee.company.bcns.each do |bcn|
+        .bcn
+          %h2= bcn.name
+          - bcn.learning_indicators.each do |li|
+            .learning-indicator-item
+              - level = @employee.levels.where(:learning_indicator_id => li.id).first
+              %div{:style => "width: 450px; padding: 0.5em; background-color : #{(level.created_at != level.updated_at) ? '#CFC' : 'white'}" }
+                = link_to li.name
+                = f.inputs do
+                  =# select_tag "priority_ratings[#{li.id}]", options_from_collection_for_select(PriorityRating.find(:all), "id", "rating", level.priority_rating.id) #:collection => PriorityRating.find(:all).map {|pr| [pr.rating, pr.id] }, :selected => 3
+          
+                  = check_box_tag "not_relevant[#{li.id}]", true, level.not_relevant
+                  = label_tag "not_relevant[#{li.id}]", t(:not_relevant)
+
+              %div{:class => 'slider', :style => 'padding: 10px'}
+                %script
+                  $(document).ready(function() { $("#slider-#{li.id}").slider({ values: [#{11-level.target_level}, #{11-level.initial_level}], range: true, animate: false, min: 1, max: 10, step: 1, orientation: 'vertical', stop: function(event, ui) { $("input[id*=" + $(this).attr("id") + "-initial]").val(11-$(this).slider('values', 1)); $("input[id*=" + $(this).attr("id") + "-target]").val(11-$(this).slider('values', 0)); } }); });
+                %div{:id =>"slider-#{li.id}", :style => 'float: left; margin: 16px 10px; height: 452px'}
+                %div.ratings
+                  - (0..9).each do |n|
+                    %div= t(("rate" + n.to_s).to_sym)
+
+                %div{:style => 'clear: both'}
+              = hidden_field_tag "target_levels[#{li.id}]", level.target_level, :id => "#slider-#{li.id}-target"
+              = hidden_field_tag "initial_levels[#{li.id}]", level.initial_level, :id => "#slider-#{li.id}-initial"
+
+      = f.buttons
+
+  .button
+    = link_to t(:back), company_employees_path(@company)

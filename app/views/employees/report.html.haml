@@ -1,0 +1,61 @@
+- if params['inline'] == '1'
+  = javascript_include_tag :all, :cache => true
+  %canvas{"data-processing-sources" => "/processing/jspie-employee.pjs"}
+
+- else
+
+  .grid_12
+    %h1
+      = t(:report_for, :this => @employee.name)
+
+    .grid_8.alpha
+      %p
+        %strong
+          = t(:overall_employee_progress)
+          &rarr;
+          - e_comp = @employee.completion
+          - if e_comp.nil?
+            &times;
+          - else
+            #{percent_colorize((e_comp * 100).to_i)}
+      %p &nbsp;
+
+      %canvas{"data-processing-sources" => "/processing/jspie-employee.pjs"}
+
+    .grid_4.omega
+      %h2= t(:employees)
+      %ul
+        - @company.employees.each do |e|
+          %li
+            %strong= link_to e.name, report_company_employee_url(@company, e)
+            &rarr;
+            - e_comp = e.completion
+            - if e_comp.nil?
+              &times;
+            - else
+              #{percent_colorize((e_comp * 100).to_i)}
+
+    .clear
+    
+    %h2= t(:bcn_li_this_employee)
+    %ul
+      - @company.bcns.each do |bcn|
+        %li
+          %strong= link_to bcn.name, report_company_bcn_url(@company, bcn)
+          &rarr;
+          - e_comp = @employee.bcn_completion(bcn.id)
+          - if e_comp.nil?
+            &times;
+          - else
+            = #{percent_colorize((e_comp * 100).to_i)}
+          %ul
+            - bcn.learning_indicators.each do |li|
+              - level = li.levels.where(:employee_id => @employee).first
+              - unless level.not_relevant
+                %li
+                  = li.name
+                  &rarr; #{percent_colorize((level.completion * 100).to_i)}
+
+    - unless guest?
+      .button
+        = link_to t(:back), report_company_path(@company)

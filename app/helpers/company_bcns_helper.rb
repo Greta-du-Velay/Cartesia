@@ -1,0 +1,2 @@
+module CompanyBcnsHelper
+end

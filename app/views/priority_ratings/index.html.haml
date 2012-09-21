@@ -1,0 +1,19 @@
+%h1 Listing priority_ratings
+
+%table
+  %tr
+    %th Rating
+    %th
+    %th
+    %th
+
+  - @priority_ratings.each do |priority_rating|
+    %tr
+      %td= priority_rating.rating
+      %td= link_to 'Show', priority_rating
+      %td= link_to t(:edit), edit_priority_rating_path(priority_rating)
+      %td= link_to 'Destroy', priority_rating, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Priority rating', new_priority_rating_path

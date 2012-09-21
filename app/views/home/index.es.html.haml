@@ -1,0 +1,48 @@
+
+- if user_signed_in?
+
+  .grid_8
+    %p
+      %strong Hola asesor!
+
+    %p Bienvenidos en su escritorio personal.
+    %p Aquí puede gestionar las empresas donde trabaja, las necesidades críticas de negocio, indicadores de aprendizaje y así sucesivamente ...
+    %p= link_to "Crear un perfil de empresa nueva", new_company_path
+    %p
+      %em &nbsp;-- o --
+    %p
+      = link_to "Crear una empresa falsa", 'companies/create_random'
+      (unicamente para prueba...)
+
+  .grid_4
+    %h3 empresas asesoradas
+    - if @user.companies.empty?
+      %em Ahora mismo no tienes ninguna empresa en seguimiento
+    - else 
+      %ul
+        - @user.companies.each do |company|
+          %li
+            = link_to company.name, company_path(company)
+
+- else
+  .grid_8
+    = form_tag choose_locale_path do
+      = select_tag "new_locale", options_for_select({'English' => 'en', 'French' => 'fr', 'Greek' => 'el', 'Italian' => 'it', 'Polish' => 'pl' , 'Spanish' => 'es'})
+      = submit_tag "Go"
+    %p
+      %strong
+        Bienvenido en la herramienta de Cartesia, un servicio para gestionar la formación de sus empleados en su empresa.
+    %p
+      Esta herramienta está dirigida a directores de recursos humanos.
+      Para empezar, iniciar sesión o registrarse de forma gratuita.
+      A continuación, cree un perfil de empresa, establecer las necesidades críticas del negocio de su actividad
+      y evaluar la progresión de los empleados.
+    %p
+      Cartesia sólo es compatible con los navegadores modernos, incluyendo las versiones actuales de Firefox, Safari, Chrome, Opera e Internet (version 9+)
+    %p
+      %em Cartesia es una herramienta gratuita desarrollada por el proyecto se convierta en partneship.
+
+    -# %strong{:style => 'color: red'}
+      -# Mensaje para convertirse en socios: por favor registrar un nuevo asesor de formación a continuación utilice el enlace para crear una empresa "falsa" 
+  .grid_4
+    %img{:src => "/images/screenshot.png"}

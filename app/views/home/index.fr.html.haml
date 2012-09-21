@@ -1,0 +1,48 @@
+
+- if user_signed_in?
+
+  .grid_8
+    %p
+      %strong Bonjour,
+
+    %p Bienvenue dans votre espace personnel.
+    %p Vous pouvez gérer sur cette page les entreprises que vous conseillez, puis vous pourrez déterminer les besoins de formation et leurs indicateurs d'apprentissage, etc.
+    %p= link_to "Créer un nouveau profil d'entreprise", new_company_path
+    %p
+      %em &nbsp;-- ou bien --
+    %p
+      = link_to "Créer une entreprise fictive", 'companies/create_random'
+      (pour tester seulement...)
+
+  .grid_4
+    %h3 Entreprises
+    - if @user.companies.empty?
+      %em Vous n'avez inscrit aucune entreprise.
+    - else 
+      %ul
+        - @user.companies.each do |company|
+          %li
+            = link_to company.name, company_path(company)
+
+- else
+  .grid_8
+    = form_tag choose_locale_path do
+      = select_tag "new_locale", options_for_select({'English' => 'en', 'French' => 'fr', 'Greek' => 'el', 'Italian' => 'it', 'Polish' => 'pl' , 'Spanish' => 'es'})
+      = submit_tag "Go"
+    %p
+      %strong
+        Bienvenue dans l'outil Cartesia, un service pour gérer les besoins de formation de l'entreprise.
+    %p
+      Cet outil est au service des responsables des ressources humaines.
+      Pour commencer, connectez-vous ou inscrivez-vous gratuitement.
+      Ensuite créez un profil d'entreprise, déterminez les besoins de formation et leurs indicateurs d'apprentissage,
+      puis évaluez la progression des employés par rapport à ces indicateurs.
+    %p
+      Cartesia fonctionne sur tous les navigateurs modernes dans leurs versions récentes (Firefox, Safari, Chrome, Opera, et Internet Explorer (version 9+))
+    %p
+      %em Cartesia est librement utilisable, il a été développé pour les besoins du projet BeCome.
+
+    -# %strong{:style => 'color: red'}
+      -# Message to BeCome partners: please register a new training advisor then use the link to create a 'fake' company
+  .grid_4
+    %img{:src => "/images/screenshot.png"}

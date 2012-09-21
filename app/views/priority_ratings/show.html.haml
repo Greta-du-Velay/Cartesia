@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Rating:
+  = @priority_rating.rating
+
+= link_to t(:edit), edit_priority_rating_path(@priority_rating)
+\|
+= link_to t(:back), priority_ratings_path

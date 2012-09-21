@@ -1,0 +1,109 @@
+
+es:
+  signup: "Registrate"
+  signin: "Entrar"
+  signout: "Salir"
+  forgotpassword: "¿Has olvidado tu contraseña?"
+  sendpassword: "Enviame instrucciones Send me reset password instructions"
+  changepassword: "Cambiar moi contraseña"
+  editprofile: "Editar mi perfíl"
+  leave_blank: "(dejar en balcno si no quieres cambiarlo)"
+    
+  back: "Volver"
+  back_to_home: "Vovler a inicio"
+  back_to_bcn: "Volver a BCN"
+  save: "Guardar"
+  edit: "Editar"
+  delete: "Borrar"
+  update: "Actualizar"
+
+  create_new_company_profile: "Crear una nueva ficha de empresa"
+  li: "Indicadores de aprendizaje"
+  bcn: "necesidades criticas del negocio"
+  registered_employees: "Registrar empleados"
+  update_levels: "Actualizar niveles"
+  manage_levels: "Gestioanr niveles"
+  no_employee_registered: "No hay empleados registrados."
+  add_employee: "Añadir un empleado"
+  bcn_identified: "necesidades criticas del negocio identificadas"
+  menu: "Menú"
+  modify_company_profile: "Modificar ficha de empresa"
+  manage_bcn_li: "Gestionar necesidades criticas del negocio y Objetivos de aprendizaje"
+  manage_employees: "Gestionar empleados y niveles"  
+  report: "Reportar"  
+  create_new_bcn: "Identificar nuevas necesidades criticas para el negocio"
+  add_li: "Añadir indicadores de aprendizaje"
+  bcn_for_company: "Necesidades crticas de negocio para esta empresa"
+  manage_li: "Gestionar indicadores de aprendizaje"
+  levels: "Niveles"
+  levels_help: "Para cada indicador de aprendizaje, elegir nivel y objetivo inicales."
+  skills_help: "Para cada indicador de aprendizaje, elegir nivel actual alcanzado." 
+  not_relevant: "No relevante para este empleado"
+
+  rate0: "No he comenzado a abordar las habilidades requeridas para este indicador"
+  rate1: "He empezado a tratar de resolver estas habilidades, pero necesitan más apoyo para avanzar"
+  rate2: "He empezado a hacer frente a estas habilidades, pero el progreso es lento"
+  rate3: "Siento que he adquirido cierto conocimiento de las habilidades y soy consciente de los progresos que he hecho"
+  rate4: "Siento que he adquirido un conocimiento significativo de estas habilidades para mi puesto de trabajo actual a través del uso de las herramientas de e-learning y estoy empezando a poner en práctica en el trabajo"
+  rate5: "Siento que he adquirido un conocimiento suficiente de estas habilidades para mi puesto de trabajo actual a través del uso de las herramientas de e-learning y estoy poniendo en práctica en el trabajo"
+  rate6: "Siento que he adquirido este indicador de aprendizaje en términos de mi rol actual, sin embargo para el desarrollo futuro de la empresa me doy cuenta que puedo desarrollar estas mas estas habilidades."
+  rate7: "Siento la suficiente confianza en el uso de estas habilidades que podrían apoyar a algunos colegas con respecto a estas habilidades"
+  rate8: "Siento la suficiente confianza en el uso de estas habilidades que podrían apoyar los recién llegados al negocio en relación con estas habilidades"
+  rate9: "Siento la suficiente confianza en el uso de estas habilidades que podrían apoyar los colegas en mi negocio con respecto a estas habilidades"
+
+  report_for: "Reportar para %{este}"
+  overall_bcn°progress: "Progesion general de las necesidades crtiicas del negocio"
+  overall_employee_progress: "Progresión general de los empleados"
+  overall_company_progress: "Progresión global de la empresa"
+  employees: "Empleado"
+  employees_count: "Empleados"
+  bcn_li_this_employee : "Indficadores de aprendizaje y necesidades criticas para el negocio para este empleado"
+  register_employees: "Tienes que registrar a los empleados para obtener un informe..."
+  manager: "Adminsitrador"
+  how_to_share_pl: "Cómo compartir este informe"
+  change_permalink: "Cambiar el permalink ahora"
+  how_to_share_help: "Para compartir este informe con los empleados o de cualquier usuario no registrado utilice el siguiente enlace. Debe enviar por correo electrónico sólo a usuarios de confianza."
+  permalink_changed: "El informe permalink ha sido actualizado. El link antiguo esta ibsoleto y deberás compartir el nuevo."
+  permalink_invalid: "Este informe no está disponible. Por favor, póngase en contacto con su tutor para obtener un enlace válido para obtener acceso al informe."
+  view_full_report: "Ver informe completo"
+  
+  attributes:
+    name: "Nombre"
+    description: "Descripción"
+    manager: "Administrador"
+    workers_count: "Total Trabajadores"
+    label: "Etiqueta"
+    password: "Contraseña"
+    password_confirmation: "Confirmación de contraseña"
+    remember_me: "Recuerdarme"
+    
+  activerecord:
+    models:
+      company: "Empresa"
+      employee: "Empleado"
+      bcn: "Necesidades críticas para el negocio"
+      learning_indicator: "indicadores de aprendizaje"
+
+  formtastic:
+    yes: "Si"
+    no: "No"
+    create: "Crear"
+    update: "Actualziar"
+    submit: "Enviar"
+    required: "Obligatorio"
+    
+    hints:
+      company:
+        name: "NOmbre de empresa"
+        manager: "Adminisitrador responsable"
+        description: "Dar una descripción de la empresa completa. Aparecerá en el informe."
+        workers_count: "Total trabajadores en la empresa"
+      bcn:
+        label: "Se utilizarán en los gráficos"
+        description: "Se utilizará en el informe"
+      learning_indicator:
+        name: "Se utilizará en el informe"
+        label: "Se utilizarán en los gráficos"
+
+  
+  

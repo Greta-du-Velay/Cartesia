@@ -1,0 +1,109 @@
+
+en:
+  signup: "Register"
+  signin: "Login"
+  signout: "Logout"
+  forgotpassword: "Forgot your password?"
+  sendpassword: "Send me reset password instructions"
+  changepassword: "Change my password"
+  editprofile: "Edit my profile"
+  leave_blank: "(leave blank if you don't want to change it)"
+    
+  back: "Back"
+  back_to_home: "Back to home"
+  back_to_bcn: "Back to BCN"
+  save: "Save"
+  edit: "Edit"
+  delete: "Delete"
+  update: "Update"
+
+  create_new_company_profile: "Create a new company profile"
+  li: "Learning indicators"
+  bcn: "Business Critical Need"
+  registered_employees: "Registered employees"
+  update_levels: "Update levels"
+  manage_levels: "Manage levels"
+  no_employee_registered: "No employee registered."
+  add_employee: "Add an employee"
+  bcn_identified: "Business Critical Needs identified"
+  menu: "Menu"
+  modify_company_profile: "Modify company profile"
+  manage_bcn_li: "Manage BCN and LI"
+  manage_employees: "Manage employees & levels"  
+  report: "Report"  
+  create_new_bcn: "Identify a new bussiness critical need"
+  add_li: "Add a learning indicator"
+  bcn_for_company: "Business critical needs for this company"
+  manage_li: "Manage learning indicators"
+  levels: "Levels"
+  levels_help: "For each learning indicator, choose the initial and target levels."
+  skills_help: "For each learning indicator, choose the current level reached." 
+  not_relevant: "Not relevant for this employee"
+
+  rate0: "I have not started to address the skills required for this indicator"
+  rate1: "I have started to try to address these skills but need more support to make progress"
+  rate2: "I have started to address these skills but progress is slow"
+  rate3: "I feel that I have acquired some knowledge of the skills and am aware of the progress I have made"
+  rate4: "Feel that I have acquired significant knowledge of these skills for my current job role through the use of the e-learning tools and am starting to put into practice on the job"
+  rate5: "Feel that I have acquired sufficient knowledge of these skills for my current job role through the use of the e-learning tools and am putting into practice on the job"
+  rate6: "Feel that I have acquired this learning indicator in terms of my present role but for future development within the company, I recognise that I can develop these skills further."
+  rate7: "Feel confident enough in using these skills that I could support a few colleagues regarding these skills"
+  rate8: "Feel confident enough in using these skills that I could support new entrants to the business regarding these skills"
+  rate9: "Feel confident enough in using these skills that I could support any colleagues in my business with regard to these skills"
+
+  report_for: "Report for %{this}"
+  overall_bcn_progress: "Overall BCN progression"
+  overall_employee_progress: "Overall employee progression"
+  overall_company_progress: "Overall company progression"
+  employees: "Employee"
+  employees_count: "Employees"
+  bcn_li_this_employee : "BCN & Learning indicators for this employee"
+  register_employees: "You have to register employees to get a report..."
+  manager: "Manager"
+  how_to_share_pl: "How to share this report?"
+  change_permalink: "Change the permalink now"
+  how_to_share_help: "To share this report with employees or any unregistred user, use the permanent link below. You should send it by email to trusted users only."
+  permalink_changed: "The report's permalink has been updated. The old link is obsolete and you should share again the new one."
+  permalink_invalid: "This report is not available. Please contact your training advisor to get a valid link to get access to the report."
+  view_full_report: "View the full report"
+  
+  attributes:
+    name: "Name"
+    description: "Description"
+    manager: "Manager"
+    workers_count: "Workers count"
+    label: "Label"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    remember_me: "Remember me"
+    
+  activerecord:
+    models:
+      company: "Company"
+      employee: "Employee"
+      bcn: "BCN"
+      learning_indicator: "learning indicator"
+
+  formtastic:
+    yes: "Yes"
+    no: "No"
+    create: "Create"
+    update: "Update"
+    submit: "Submit"
+    required: "required"
+    
+    hints:
+      company:
+        name: "Company's name"
+        manager: "Manager or humain resources responsible"
+        description: "Give an exhaustive company description. It will appear in the report."
+        workers_count: "Workers count in the company"
+      bcn:
+        label: "Will be used in graphics"
+        description: "Will be used in the report"
+      learning_indicator:
+        name: "Will be used in the report"
+        label: "Will be used in graphics"
+
+  
+  

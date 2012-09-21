@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  initial_level: 1
+  current_level: 1
+  target_level: 1
+  rank: 1
+
+two:
+  initial_level: 1
+  current_level: 1
+  target_level: 1
+  rank: 1

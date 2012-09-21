@@ -1,0 +1,18 @@
+= semantic_form_for [@company, @employee] do |f|
+  -if @employee.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@employee.errors.count, "error")} prohibited this employee from being saved:"
+      %ul
+        - @employee.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.inputs do
+    = f.input :name
+    = f.input :email
+
+    = f.buttons do
+      = f.commit_button
+
+= semantic_form_for [@company, @employee] do |f|
+  = f.buttons do
+    = button_to(t(:delete), company_employee_path(@company, @employee), :method=>:delete, :class=>:destroy) unless @employee.new_record?

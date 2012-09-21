@@ -1,0 +1,40 @@
+.employees.skills
+  %h1= t(:levels)+" (#{@employee.name})"
+
+  %p= t(:skills_help)
+
+  .bcns
+    = semantic_form_for levels_company_employee_path(@company, @employee) do |f|
+      - @employee.company.bcns.each do |bcn|
+        .bcn
+          %h2= bcn.name
+
+          - li_count = 0
+          - bcn.learning_indicators.each do |li|
+            .bcn-learning-indicators
+              - level = @employee.levels.where(:learning_indicator_id => li.id).first
+              - unless level.not_relevant
+                - li_count += 1    
+                -# link_to_function(li.name) do |page|
+                  -# page["#slider-container-#{li.id}"].toggle
+                  -# page.select('div.slider *').each do |d| d.hide end
+                = li.name
+                = "(#{level.initial_level} &rarr; #{level.target_level})".html_safe
+
+                %div{:class => 'slider', :id => "slider-container-#{li.id}", :style => 'padding: 10px'}
+                  %script
+                    $(document).ready(function() { $("#slider-#{li.id}").slider({ value: #{level.target_level + level.initial_level - level.current_level}, animate: false, min: #{level.initial_level}, max: #{level.target_level}, step: 1, orientation: 'vertical', stop: function(event, ui) { $("input[id*=" + $(this).attr("id") + "-current]").val(#{level.target_level+level.initial_level} - $(this).slider('value')); } }); });
+                  %div{:id =>"slider-#{li.id}", :style => "float: left; margin: 16px 10px; height: #{(452/9*(level.target_level-level.initial_level))}px; margin-top: #{ 452 / 9 * (level.initial_level - 1) + 16 }px"}
+                  -# 
+                  %div.ratings
+                    - (0..9).each do |n|
+                      %div= t(("rate" + n.to_s).to_sym)
+
+                  %div{:style => 'clear: both'}
+                  = hidden_field_tag "current_levels[#{li.id}]", level.current_level, :id => "#slider-#{li.id}-current"
+          - if li_count == 0
+            %i This employee has no relevant learning indicator in this business critical need
+      = f.buttons
+
+  .button
+    = link_to t(:back), company_employees_path(@company)

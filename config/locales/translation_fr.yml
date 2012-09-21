@@ -1,0 +1,25 @@
+fr:
+  activerecord:
+    models:
+      user: Utilisateur  #g
+
+    attributes:
+      user:
+        email: Email  #g
+        encrypted_password: "Mot de passe crypté"  #g
+        password_salt: sel Mot de passe  #g
+        reset_password_token: "Mot de passe oublié jeton"  #g
+        remember_token: N&#39;oubliez pas de jeton  #g
+        remember_created_at: "Rappelez-vous créé à"  #g
+        current_sign_in_at: Inscrivez-vous au courant de  #g
+        last_sign_in_at: Dernier signe en moins  #g
+        current_sign_in_ip: signe du courant dans ip  #g
+        last_sign_in_ip: Dernier signe en ip  #g
+        confirmation_token: Confirmation jeton  #g
+        confirmed_at: "Confirmé à"  #g
+        confirmation_sent_at: "Confirmation envoyée à"  #g
+        failed_attempts: "Échec des tentatives"  #g
+        unlock_token: "Débloquer jeton"  #g
+        locked_at: "Verrouillé à"  #g
+        authentication_token: Jeton d&#39;authentification  #g
+        role: "Rôle"  #g

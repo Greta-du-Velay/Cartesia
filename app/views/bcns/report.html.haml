@@ -1,0 +1,46 @@
+- if params['inline'] == '1'
+  = javascript_include_tag :all, :cache => true
+  %canvas{"data-processing-sources" => "/processing/jspie-bcn.pjs"}
+- else
+  .grid_12
+    %h1
+      = t(:report_for, :this => @bcn.name.ellips)
+    %p
+      = @bcn.description
+
+    - if @company.employees.count > 0
+      .grid_8.alpha
+        %p
+          %strong
+            = t(:overall_bcn_progress)
+            &rarr;
+            - b_comp = @bcn.completion
+            - if b_comp.nil?
+              &times;
+            - else
+              #{percent_colorize((b_comp * 100).to_i)}
+
+        %p &nbsp;
+
+        %canvas{"data-processing-sources" => "/processing/jspie-bcn.pjs"}
+
+      .grid_4.omega
+        %h2= t(:employees)
+        %ul
+          - @company.employees.each do |e|
+            %li
+              %strong= link_to e.name, report_company_employee_url(@company, e)
+              &rarr;
+              - e_comp = e.bcn_completion(@bcn.id)
+              - if e_comp.nil?
+                &times;
+              - else
+                #{percent_colorize((e_comp * 100).to_i)}
+    - else
+      %p= t(:register_employees)
+
+    .clear
+
+    - unless guest?
+      .button
+        = link_to t(:back), report_company_path(@company)

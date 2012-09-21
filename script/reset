@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -f db/development.sqlite3 db/schema.rb
+rake db:migrate
+rake db:seed
+#read
+#script/runner script/browsershot-cron.rb
+

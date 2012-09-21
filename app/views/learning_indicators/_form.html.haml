@@ -1,0 +1,18 @@
+= semantic_form_for [@company, @bcn, @learning_indicator] do |f|
+  -if @learning_indicator.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@learning_indicator.errors.count, "error")} prohibited this learning_indicator from being saved:"
+      %ul
+        - @learning_indicator.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.inputs do
+    = f.input :name, :hint => true
+    = f.input :label, :hint => true
+
+  = f.buttons do
+    = f.commit_button
+
+= semantic_form_for [@company, @bcn, @learning_indicator] do |f|
+  = f.buttons do
+    = button_to(t(:delete), company_bcn_learning_indicator_path(@company, @bcn, @learning_indicator), :method=>:delete, :class=>:destroy) unless @learning_indicator.new_record?

@@ -1,0 +1,13 @@
+= form_for @priority_rating do |f|
+  -if @priority_rating.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@priority_rating.errors.count, "error")} prohibited this priority_rating from being saved:"
+      %ul
+        - @priority_rating.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :rating
+    = f.text_field :rating
+  .actions
+    = f.submit t(:save)

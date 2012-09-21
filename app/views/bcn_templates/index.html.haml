@@ -1,0 +1,21 @@
+%h1 Listing bcn_templates
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @bcn_templates.each do |bcn_template|
+    %tr
+      %td= bcn_template.name
+      %td= bcn_template.description
+      %td= link_to 'Show', bcn_template
+      %td= link_to t(:edit), edit_bcn_template_path(bcn_template)
+      %td= link_to 'Destroy', bcn_template, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Bcn template', new_bcn_template_path

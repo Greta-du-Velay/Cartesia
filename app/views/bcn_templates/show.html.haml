@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @bcn_template.name
+%p
+  %b Description:
+  = @bcn_template.description
+
+= link_to t(:edit), edit_bcn_template_path(@bcn_template)
+\|
+= link_to t(:back), bcn_templates_path

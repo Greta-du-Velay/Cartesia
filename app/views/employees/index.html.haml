@@ -1,0 +1,28 @@
+.employees.index
+  %h1= t(:registered_employees)
+
+  %table
+    %tr
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th
+
+    - @employees.each do |employee|
+      %tr
+        %td= employee.name
+        %td= mail_to employee.email
+        %td= link_to t(:edit), edit_company_employee_path(@company, employee)
+        %td= link_to t(:manage_levels), levels_company_employee_path(@company, employee)
+        %td= link_to t(:update_levels), skills_company_employee_path(@company, employee)
+        %td= link_to t(:report), report_company_employee_url(@company, employee) unless @company.bcns.count == 0 or @company.employees.count == 0
+
+  %br
+
+  %h2= t(:add_employee)
+  = render 'form'
+
+  .button
+    = link_to t(:back), company_path(@company)

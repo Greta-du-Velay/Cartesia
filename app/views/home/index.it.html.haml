@@ -1,0 +1,48 @@
+
+- if user_signed_in?
+
+  .grid_8
+    %p
+      %strong Benvenuto consulente!
+
+    %p Benvenuto nella tua lavagna personale.
+    %p Qui puoi gestire le tue aziende, business critical needs, learning indicators e altro..
+    %p= link_to "Crea un nuovo profilo aziendale", new_company_path
+    %p
+      %em &nbsp;-- o --
+    %p
+      = link_to "Crea una azienda di prova", 'companies/create_random'
+      (solo per scopi di test...)
+
+  .grid_4
+    %h3 Aziende
+    - if @user.companies.empty?
+      %em Non esiste alcuna azienda associata.
+    - else 
+      %ul
+        - @user.companies.each do |company|
+          %li
+            = link_to company.name, company_path(company)
+
+- else
+  .grid_8
+    = form_tag choose_locale_path do
+      = select_tag "new_locale", options_for_select({'English' => 'en', 'French' => 'fr', 'Greek' => 'el', 'Italian' => 'it', 'Polish' => 'pl' , 'Spanish' => 'es'})
+      = submit_tag "Go"
+    %p
+      %strong
+        Bevenuto in the Cartesia tool, un servizio per gestire i corsi aziendali.
+    %p
+      Questo strumento è destinato ai responsabili delle risorse umane.
+      Per iniziare iscriviti.
+      Successivamente crea un profilo aziendale e configura business critical needs
+      e valuta i progressi dei membri.
+    %p
+      Cartesia supporta i browsers più moderni, incluse le ultime versioni di Firefox, Safari, Chrome, Opera, and Internet Explorer (version 9+)
+    %p
+      %em Cartesia è uno strumento gratuito sviluppato da BeCome project partneship.
+
+    -# %strong{:style => 'color: red'}
+      -# Messaggio a BeCome partners: registratetvi usando il link crea azienda di prova
+  .grid_4
+    %img{:src => "/images/screenshot.png"}

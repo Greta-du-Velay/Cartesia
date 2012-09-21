@@ -1,0 +1,6 @@
+%h1= t(:edit)+' '+@company.name
+
+= render 'form'
+
+.button
+  = link_to t(:back), company_path(@company)

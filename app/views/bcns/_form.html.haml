@@ -1,0 +1,19 @@
+= semantic_form_for [@company, @bcn] do |f|
+  -if @bcn.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bcn.errors.count, "error")} prohibited this bcn from being saved:"
+      %ul
+        - @bcn.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.inputs do
+    = f.input :name
+    = f.input :label, :hint => true
+    = f.input :description, :hint => true
+
+  = f.buttons do
+    = f.commit_button
+
+= semantic_form_for [@company, @bcn] do |f|
+  = f.buttons do
+    = button_to(t(:delete), company_bcn_path(@company, @bcn), :method=>:delete, :class=>:destroy) unless @bcn.new_record?

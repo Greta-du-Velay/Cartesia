@@ -1,0 +1,2 @@
+module BcnsHelper
+end

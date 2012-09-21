@@ -1,0 +1,93 @@
+.grid_12
+  .grid_8.alpha
+    %p
+      %h1
+        = @company.name
+    %p
+      = @company.description
+    %p
+      = t(:manager)
+      \:
+      %strong= @company.manager
+    %p
+      = t(:employees_count)
+      \:
+      %strong= @company.workers_count
+      = "(#{t(:registered_employees).downcase} : #{@company.employees.count.to_s})"
+
+  .grid_4.omega
+    - if !guest?
+      .share-this-report
+        %h3
+          %img{:align => "bottom", :border => "0", :src => "/images/icons/famfamfam-silk/16/chart_pie_link.png"}/
+          =t(:how_to_share_pl)
+        %p
+          = t(:how_to_share_help)
+        %p
+          = text_field_tag 'permalink', (u = root_url + '/report/' + @company.permalink), :readonly => true, :style => 'width: 273px', :onclick => 'this.select()'
+        %p
+          = link_to t(:change_permalink), reset_permalink_company_path(@company)
+
+  .clear
+
+  %h2= t(:report)
+  %p.view-full-report= link_to t(:view_full_report), fullreport_company_path(@company)
+  - if @company.employees.count > 0    
+    .grid_8.alpha
+      %p
+        %strong
+          = t(:overall_company_progress)
+          &rarr;
+          - ccomp = @company.completion
+          - if ccomp.nil?
+            &times;
+          - else
+            #{percent_colorize((ccomp * 100).to_i)}
+      %p &nbsp;
+
+      %canvas{"data-processing-sources" => "/processing/jspie-company.pjs"}
+
+    .grid_4.omega
+      %h2= t(:bcn)
+      %ul
+        - @company.bcns.each do |bcn|
+          %li
+            %strong= link_to bcn.name, report_company_bcn_url(@company, bcn)
+            &rarr;
+            - b_comp = bcn.completion
+            - if b_comp.nil?
+              &times;
+            - else
+              #{percent_colorize((b_comp * 100).to_i)}
+  - else
+    %p= t(:register_employees)
+
+  .clear
+
+  %h2=t(:employees)
+  %ul
+    - @company.employees.each do |e|
+      %li
+        %strong= link_to e.name, report_company_employee_url(@company, e)
+        &rarr; 
+        - e_comp = e.completion
+        - if e_comp.nil?
+          &times;
+        - else
+          #{percent_colorize((e_comp * 100).to_i)}
+          
+        %ul
+          - @company.bcns.each do |bcn|
+            %li
+              = bcn.name
+              &rarr; 
+              - bcnc = e.bcn_completion(bcn.id)
+              - if bcnc.nil?
+                &times;
+              - else
+                #{percent_colorize((bcnc * 100).to_i)}
+
+  - unless guest?
+    .button
+      = link_to t(:back), company_path(@company)
+

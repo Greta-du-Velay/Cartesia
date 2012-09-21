@@ -1,0 +1,23 @@
+.bcns.new
+  %h1= t(:create_new_bcn)
+
+  = render 'form'
+
+  .button
+    = link_to t(:back), company_bcns_path(@company)
+
+  -#
+    - unless @company.new_record?
+      %h2 Business critical needs (BCN) for <em>#{@company.name}</em> company
+      - @company.bcns.each do |bcn|
+        = f.semantic_fields_for :bcns, bcn do |f|
+          = f.input :name
+          = f.input :description
+
+        %h3 Learning indicators for <em>#{bcn.name}</em>
+        %ul.learning-indicators
+          - bcn.learning_indicators.each do |li|
+            %li= li.name
+        = link_to t(:add_li), new_bcn_learning_indicator_path(bcn)
+        %br
+        %br

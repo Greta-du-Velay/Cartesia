@@ -1,0 +1,153 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  body a {
+    color: #0164e5;
+    text-decoration: none; }
+  body a:hover {
+    color: #1b387a;
+    text-decoration: underline; }
+  body b, body strong {
+    font-weight: bold; }
+  body ul {
+    padding-left: 1.25em; }
+  body h1 {
+    color: #333366; }
+  body h2, body h3, body h4 {
+    color: #663333; }
+  body form .inline-hints, body form .help {
+    color: #666666;
+    font-size: 90%;
+    font-style: italic; }
+  body form li.required abbr {
+    color: #993333;
+    margin-left: 0.25em; }
+  body #logo {
+    padding-top: 32px; }
+  body #nav {
+    text-align: right;
+    border-top: 1px solid #cccccc;
+    margin: 0.25em auto 2em auto; }
+    body #nav li {
+      display: inline;
+      margin-right: 1em;
+      font-size: 85%;
+      font-weight: bold;
+      background-color: #cccccc;
+      padding: 0.25em 1em; }
+      body #nav li a {
+        color: black; }
+  body .menu {
+    margin-top: 4em; }
+  body .bcns .bcn-item {
+    padding: 0 1em 1em 1em;
+    border: 1px solid #cccccc;
+    margin-bottom: 2em; }
+    body .bcns .bcn-item .edit-link {
+      float: right;
+      margin-top: 1em; }
+  body .learning_indicators table, body .employees table {
+    width: 100%; }
+  body .levels fieldset, body .skills fieldset {
+    margin-top: 0.5em;
+    font-size: 80%; }
+    body .levels fieldset ol > li label, body .skills fieldset ol > li label {
+      float: none; }
+    body .levels fieldset.buttons, body .skills fieldset.buttons {
+      padding-left: 40px; }
+  body .levels table .slider, body .skills table .slider {
+    width: 400px; }
+  body .levels .ratings, body .skills .ratings {
+    font-size: 85%; }
+    body .levels .ratings div, body .skills .ratings div {
+      height: 40px;
+      padding: 8px 0 0 40px;
+      border-top: 1px solid #cccccc;
+      border-bottom: 1px solid #cccccc; }
+  body #footer-bg {
+    clear: both;
+    margin-top: 2em;
+    border-top: 1px solid #cccccc; }
+    body #footer-bg #footer {
+      font-size: 80%;
+      color: #666666;
+      text-align: center;
+      font-style: italic; }
+  body .formtastic label {
+    color: #444444;
+    font-weight: bold; }
+  body .formtastic li.error label {
+    color: #cd0a0a; }
+  body .formtastic li.error input, body .formtastic li.error textarea {
+    background: #fbe3e4; }
+  body #error_explanation, body .alert, body .notice, body .warning, body .error {
+    padding: 0.8em;
+    margin: 1em 0;
+    border: 1px solid #dddddd;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    line-height: 1.5em; }
+  body #error_explanation {
+    background: #fbe3e4;
+    border-color: #fbc2c4;
+    color: #d12f19; }
+    body #error_explanation p, body #error_explanation li {
+      color: #d12f19; }
+    body #error_explanation h3 {
+      color: #d12f19;
+      margin: 5px 0 0 0; }
+    body #error_explanation ul {
+      margin: 10px 0 0 20px !important; }
+  body .alert {
+    background: #fbe3e4;
+    border-color: #fbc2c4;
+    color: #d12f19; }
+    body .alert a {
+      color: #d12f19;
+      text-decoration: underline; }
+  body .notice {
+    background: #fff6bf;
+    border-color: #ffd324;
+    color: #817134; }
+    body .notice a {
+      color: #817134;
+      text-decoration: underline; }
+  body #error_explanation ul {
+    margin: 1em 1.5em; }
+    body #error_explanation ul li {
+      list-style: square !important;
+      margin: 0 !important; }
+
+ul.learning-indicators li {
+  list-style-type: disc;
+  margin-left: 1.5em; }
+
+.button {
+  margin: 2em auto 0.5em 0;
+  text-align: right; }
+  .button a {
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    height: 115%;
+    padding: 0.5em 1em 0.3em 1em;
+    font-family: calibri, myriad pro, myriad, arial, tahoma, verdana, sans;
+    font-size: 100%;
+    font-weight: bold;
+    color: black;
+    color: #0164e5;
+    border: 1px solid #0164e5; }
+    .button a:hover {
+      color: #222277;
+      color: white;
+      text-decoration: none;
+      background-color: #0164e5; }
+  .button.right {
+    text-align: right; }
+
+.share-this-report {
+  font-size: 85%;
+  padding: 1em;
+  background-color: #eeeeee; }
+
+canvas {
+  page-break-before: avoid; }

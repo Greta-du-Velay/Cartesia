@@ -1,0 +1,15 @@
+.clear {
+height: 1%;
+}
+
+div,
+#nav li {
+	zoom:1;
+}
+
+
+/* sorts out dropped floats */
+.item  {
+    overflow: hidden;
+	 word-wrap: break-word;
+}

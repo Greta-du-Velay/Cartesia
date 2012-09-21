@@ -1,0 +1,7 @@
+.employees.edit
+  %h1= t(:edit)+' '+@employee.name
+
+  = render 'form'
+
+  .button
+    = link_to t(:back), company_employees_path(@company)

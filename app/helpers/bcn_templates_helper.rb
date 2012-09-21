@@ -1,0 +1,2 @@
+module BcnTemplatesHelper
+end

@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @learning_indicator.name
+
+= link_to t(:edit), edit_learning_indicator_path(@learning_indicator)
+\|
+= link_to t(:back), learning_indicators_path

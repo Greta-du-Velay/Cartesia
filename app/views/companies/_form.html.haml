@@ -1,0 +1,15 @@
+= semantic_form_for @company do |f|
+  -if @company.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@company.errors.count, "error")} prohibited this company from being saved:"
+      %ul
+        - @company.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.inputs do
+    = f.input :name, :hint => true
+    = f.input :manager, :hint => true
+    = f.input :description, :as => :text, :hint => true
+    = f.input :workers_count, :as => :numeric, :hint => true
+        
+  = f.buttons
