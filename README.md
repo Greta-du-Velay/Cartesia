@@ -10,17 +10,17 @@ Requirements
 
 Cartesia installs as any Rails 3 application. The following Gems are required:
 
-- rails (>= 3.0.7)
+- [rails](http://rubyonrails.org/) (>= 3.0.7)
 - sqlite3-ruby and sqlite3 (if you use a sqlite database backend)
 - mysql (if you use a mysql database backend)
-- haml
+- [haml](http://haml.info/)
 - haml-rails
-- devise (>= 1.3.4)
-- cancan
-- navigasmic
-- formtastic
-- http_accept_language
-- faker
+- [devise](https://github.com/plataformatec/devise) (>= 1.3.4)
+- [cancan](https://github.com/ryanb/cancan)
+- [navigasmic](https://github.com/jejacks0n/navigasmic)
+- [formtastic](https://github.com/justinfrench/formtastic)
+- [http_accept_language](https://github.com/iain/http_accept_language)
+- [faker](http://faker.rubyforge.org/)
 
 And ruby language of course!
 
