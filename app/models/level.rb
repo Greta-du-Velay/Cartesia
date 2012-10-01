@@ -8,7 +8,7 @@ class Level < ActiveRecord::Base
     if range == 0 or not_relevant
       1
     else
-      (current_level - initial_level).to_f/range
+      ([current_level, initial_level].max - initial_level).to_f/range
     end
   end
 

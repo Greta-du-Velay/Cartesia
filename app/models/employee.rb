@@ -75,7 +75,7 @@ class Employee < User
         if range == 0
           total_bcn += 1
         else
-          total_bcn += (level.current_level - level.initial_level).to_f/range
+          total_bcn += ([level.current_level, level.initial_level].max - level.initial_level).to_f/range
         end
       end
     end
